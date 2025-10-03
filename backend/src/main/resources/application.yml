@@ -1,0 +1,65 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: tryon-backend
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 20MB
+      enabled: true
+
+# Storage configuration - directories for different file types
+storage:
+  products: ./storage/products
+  user-uploads: ./storage/user
+  results: ./storage/results
+  allowed-content-types: image/jpeg,image/png
+  max-file-size: 10485760  # 10MB in bytes
+
+# CORS configuration - change allowed-origins for production
+cors:
+  allowed-origins: http://localhost:3000
+  allowed-methods: GET,POST,PUT,DELETE,OPTIONS
+  allowed-headers: "*"
+  allow-credentials: true
+
+# Try-on service configuration
+tryon:
+  service:
+    url: ${TRYON_SERVICE_URL:http://localhost:8081/api/tryon}
+    timeout: 300  # 5 minutes timeout for processing
+
+# Gemini API configuration for image generation
+gemini:
+  api-key: AIzaSyCZwa1ZE2b25v2TX_-76KrmaYTi0Zqcfas
+  api-url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image-preview:generateContent
+
+# Actuator endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: when-authorized
+
+# Logging configuration
+logging:
+  level:
+    com.tryon: INFO
+    org.springframework.web: DEBUG
+    org.springframework.security: DEBUG
+    root: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level [%X{requestId}] %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level [%X{requestId}] %logger{36} - %msg%n"
+  file:
+    name: ./logs/tryon-backend.log
+  logback:
+    rollingpolicy:
+      max-file-size: 10MB
+      max-history: 30
+      total-size-cap: 1GB
