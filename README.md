@@ -188,10 +188,16 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Hitansu Parichha** - Full-Stack Developer specializing in AI integration and enterprise applications
 
-- 🌐 **Portfolio**: [Your Portfolio Website]
+- 🌐 **Portfolio**: [hitansu-portfolio.vercel.app](https://your-portfolio-link.com)
 - 💼 **LinkedIn**: [linkedin.com/in/hitansu-parichha](https://linkedin.com/in/hitansu-parichha/)
 - 📧 **Email**: hitansu2004@gmail.com
 - 🐙 **GitHub**: [@Hitansu2004](https://github.com/Hitansu2004)
+
+### **🏆 Professional Background**
+- **8+ months** enterprise experience at **Nisum Technologies**
+- **Computer Science Graduate** from CVRGU Bhubaneswar  
+- **Specialized in**: Full-stack development, AI integration, cloud architecture
+- **Available for**: Freelance projects and consulting
 
 ## 🙏 **Acknowledgments**
 
