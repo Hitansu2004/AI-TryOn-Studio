@@ -72,8 +72,12 @@ build/
 # API Keys (Never commit these!)
 **/application-prod.yml
 **/application-secrets.yml
+**/application-local.yml
 *.key
 *.pem
+# Target folder containing compiled classes with potential secrets
+**/target/**
+**/build/**
 
 # Temporary files
 *.tmp

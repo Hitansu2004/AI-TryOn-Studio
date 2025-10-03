@@ -33,7 +33,7 @@ tryon:
 
 # Gemini API configuration for image generation
 gemini:
-  api-key: AIzaSyCZwa1ZE2b25v2TX_-76KrmaYTi0Zqcfas
+  api-key: ${GEMINI_API_KEY:your_api_key_here}
   api-url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image-preview:generateContent
 
 # Actuator endpoints

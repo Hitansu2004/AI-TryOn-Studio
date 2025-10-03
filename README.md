@@ -88,12 +88,20 @@ npm run dev
 
 ### **Environment Variables**
 
+**⚠️ SECURITY NOTICE: Never commit API keys to version control!**
+
+**Backend Setup:**
+1. Copy `.env.example` to `.env`
+2. Add your Gemini API key:
+```bash
+export GEMINI_API_KEY=your_actual_api_key_here
+```
+
 **Backend (`application.yml`):**
 ```yaml
 gemini:
-  api:
-    key: "YOUR_GEMINI_API_KEY"
-    url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent"
+  api-key: ${GEMINI_API_KEY:your_api_key_here}
+  api-url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image-preview:generateContent"
 ```
 
 **Frontend (`.env.local`):**
