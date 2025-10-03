@@ -1,47 +1,43 @@
+# =============================================================================
+# AI-TRYON STUDIO - COMPREHENSIVE .GITIGNORE
+# Full-Stack Application (Next.js Frontend + Spring Boot Backend)
+# =============================================================================
+
+# =============================================================================
+# NODE.JS & NEXT.JS (Frontend)
+# =============================================================================
+
 # Dependencies
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Next.js
+/.next/
+/out/
+next-env.d.ts
+.next
+.swc/
 
 # Production builds
 /frontend/.next/
 /frontend/out/
 /frontend/build/
-/backend/target/
-/backend/.mvn/wrapper/maven-wrapper.jar
+/frontend/dist/
+build/
+dist/
 
-# Environment variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# Package managers
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
 
-# IDE files
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# Logs
-logs/
-*.log
-
-# Storage directories
-storage/
-uploads/
-temp/
+# =============================================================================
+# JAVA & SPRING BOOT (Backend)
+# =============================================================================
 
 # Java
 *.class
@@ -54,6 +50,9 @@ temp/
 
 # Maven
 target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
@@ -63,23 +62,302 @@ dependency-reduced-pom.xml
 
 # Spring Boot
 HELP.md
-.gradle
-build/
-!gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
+/backend/target/
+/backend/.mvn/wrapper/maven-wrapper.jar
 
-# API Keys (Never commit these!)
+# =============================================================================
+# ENVIRONMENT VARIABLES & SECRETS
+# =============================================================================
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.example.filled
+
+# API Keys and Configuration (SECURITY CRITICAL)
 **/application-prod.yml
 **/application-secrets.yml
 **/application-local.yml
 *.key
 *.pem
-# Target folder containing compiled classes with potential secrets
-**/target/**
-**/build/**
+*.p12
+*.jks
+*.keystore
+secrets/
+credentials/
+
+# Google Cloud & AI API Keys
+google-credentials.json
+google-service-account.json
+gemini-api-key.txt
+
+# =============================================================================
+# IDE & EDITOR FILES
+# =============================================================================
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+*.idea/workspace.xml
+*.idea/tasks.xml
+*.idea/gradle.xml
+*.idea/libraries/
+*.idea/modules.xml
+*.idea/jarRepositories.xml
+*.idea/compiler.xml
+*.idea/misc.xml
+*.idea/vcs.xml
+*.idea/encodings.xml
+*.idea/copilotDiffState.xml
+
+### VS Code ###
+.vscode/
+*.code-workspace
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+
+### Other Editors ###
+*.swp
+*.swo
+*~
+.vim/
+.emacs.d/
+
+# =============================================================================
+# OPERATING SYSTEM FILES
+# =============================================================================
+
+### macOS ###
+.DS_Store
+.DS_Store?
+._*
+.AppleDouble
+.LSOverride
+Icon?
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+### Windows ###
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+### Linux ###
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# =============================================================================
+# LOGS & DEBUGGING
+# =============================================================================
+
+# Application logs
+logs/
+*.log
+*.log.*
+*.out
+*.err
+*.trace
+*.pid
+*.seed
+*.pid.lock
+
+# Debug files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# =============================================================================
+# STORAGE & UPLOADS
+# =============================================================================
+
+# File uploads and storage
+storage/
+uploads/
+temp/
+temporary/
+/backend/storage/
+/frontend/public/uploads/
+user-uploads/
+generated-images/
+ai-results/
+
+# Image processing cache
+.cache/
+cache/
+image-cache/
+ai-cache/
+
+# =============================================================================
+# TESTING & COVERAGE
+# =============================================================================
+
+# Test results
+coverage/
+.nyc_output
+.coverage
+*.lcov
+test-results/
+coverage-reports/
+
+# Jest
+jest-coverage/
+
+# =============================================================================
+# DEPLOYMENT & DOCKER
+# =============================================================================
+
+# Docker
+*.dockerignore
+docker-compose.override.yml
+.dockerignore
+Dockerfile.local
+
+# Kubernetes
+*.kubeconfig
+k8s-secrets.yml
+
+# Cloud deployment
+.vercel/
+.netlify/
+.aws/
+.azure/
+.gcp/
+
+# =============================================================================
+# AI & ML SPECIFIC
+# =============================================================================
+
+# Model files (if any local models)
+*.model
+*.pkl
+*.h5
+*.pb
+models/
+weights/
+
+# AI processing temporary files
+ai-temp/
+processing/
+inference-results/
+
+# Google AI Studio cache
+.ai-studio-cache/
+
+# =============================================================================
+# MISC
+# =============================================================================
 
 # Temporary files
 *.tmp
 *.temp
-.cache/
+.temp/
+.tmp/
+
+# Backup files
+*.bak
+*.backup
+backup/
+
+# Lock files
+*.lock
+
+# Archive files
+*.tar
+*.tgz
+*.zip
+*.rar
+*.7z
+
+# Security
+.env.backup
+config.local.js
+
+# ESLint
+.eslintcache
+
+# Prettier
+.prettiercache
+
+# TypeScript
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
